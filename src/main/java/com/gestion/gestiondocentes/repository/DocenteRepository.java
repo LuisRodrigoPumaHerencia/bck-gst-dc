@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.gestion.gestiondocentes.model.Docente;
 
 public interface DocenteRepository extends JpaRepository<Docente, Long>{
-    
+    Docente getByPrimerNombreAndSegundoApellido(String primerNombre, String segundoApellido);
 }

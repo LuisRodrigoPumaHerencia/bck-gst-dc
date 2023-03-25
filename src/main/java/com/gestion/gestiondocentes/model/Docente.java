@@ -1,10 +1,14 @@
 package com.gestion.gestiondocentes.model;
 
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
@@ -27,25 +31,30 @@ public class Docente {
     private String primerApellido;
 
     @Column(name = "segundoApellido")
-    private String segundioApellido;
+    private String segundoApellido;
 
     @Column(name = "especialidad")
     private String especialidad;
 
-    
+    @OneToMany(orphanRemoval = true, cascade = CascadeType.PERSIST, mappedBy = "docente")
+    List<Curso> listaCursos;
 
     public Docente() {
     }
 
+    
+
     public Docente(Long idDocente, String primerNombre, String segundoNombre, String primerApellido,
-            String segundioApellido, String especialidad) {
+            String segundoApellido, String especialidad) {
         this.idDocente = idDocente;
         this.primerNombre = primerNombre;
         this.segundoNombre = segundoNombre;
         this.primerApellido = primerApellido;
-        this.segundioApellido = segundioApellido;
+        this.segundoApellido = segundoApellido;
         this.especialidad = especialidad;
     }
+
+
 
     public Long getIdDocente() {
         return idDocente;
@@ -79,14 +88,6 @@ public class Docente {
         this.primerApellido = primerApellido;
     }
 
-    public String getSegundioApellido() {
-        return segundioApellido;
-    }
-
-    public void setSegundioApellido(String segundioApellido) {
-        this.segundioApellido = segundioApellido;
-    }
-
     public String getEspecialidad() {
         return especialidad;
     }
@@ -95,5 +96,12 @@ public class Docente {
         this.especialidad = especialidad;
     }
 
-    
+    public String getSegundoApellido() {
+        return segundoApellido;
+    }
+
+    public void setSegundoApellido(String segundoApellido) {
+        this.segundoApellido = segundoApellido;
+    }
+
 }
