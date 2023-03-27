@@ -1,0 +1,30 @@
+<div class="container" id="centrado">
+    <h1>Cursos</h1>
+
+    <div class="row">
+        <div class="col-3 offset-9">
+            <button (click)="irRegistrocurso()" type="button" class="btn btn-success"> <i class="fa-solid fa-plus"></i> <b>Agregar</b></button>
+        </div>
+    </div>
+
+
+    <table class="table mt-3">
+        <thead class="table-dark mt-2" >
+            <tr>
+                <th>Id Curso</th><th>Nombre Curso</th><th>Lugar Curso</th><th>Docente</th><th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody class="table-dark">
+            <tr>
+                <td>1</td>
+                <td>Matematicas</td>
+                <td>Lima</td>
+                <td>Juan Perez</td>
+                <td>
+                    <button type="button" class="btn btn-primary"><i class="fa-solid fa-pencil"></i></button>
+                    <button id="estilosboton" type="button" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
